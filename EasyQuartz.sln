@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyQuartz", "EasyQuartz\EasyQuartz.csproj", "{5016F547-05E1-445C-9055-AA9DE0C1546D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiSample", "samples\ApiSample\ApiSample.csproj", "{466F7C26-C456-48F2-B154-CCBC9734B13F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5016F547-05E1-445C-9055-AA9DE0C1546D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5016F547-05E1-445C-9055-AA9DE0C1546D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5016F547-05E1-445C-9055-AA9DE0C1546D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5016F547-05E1-445C-9055-AA9DE0C1546D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{466F7C26-C456-48F2-B154-CCBC9734B13F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{466F7C26-C456-48F2-B154-CCBC9734B13F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{466F7C26-C456-48F2-B154-CCBC9734B13F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{466F7C26-C456-48F2-B154-CCBC9734B13F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E7D84D4-857A-43C0-A115-E2DAB6F50E1C}
+	EndGlobalSection
+EndGlobal
