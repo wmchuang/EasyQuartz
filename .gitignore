@@ -32,6 +32,7 @@ bld/
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
+.vscode/
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 
@@ -338,3 +339,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/src/Services/WeChat/MP/UGuoba.Services.WeChat.MP.Api/UGuoba.Services.WeChat.MP.Api.xml
+/src/Services/WeChat/MP/UGuoba.Services.WeChat.MP.Entity/UGuoba.Services.WeChat.MP.Entity.xml
+/src/Services/Products/ExamBank/UGuoba.Services.Products.ExamBank.Api/UGuoba.Services.Products.ExamBank.Api.xml
+/src/Services/Products/ExamBank/UGuoba.Services.Products.ExamBank.Model/UGuoba.Services.Products.ExamBank.Model.xml
