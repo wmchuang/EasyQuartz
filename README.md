@@ -1,9 +1,10 @@
 # EasyQuartz
-### 1.引用EasyQuartz
+### 1. 引用EasyQuartz
 
 
 
-### 2.Add Service
+### 2. Startup Add Service
+	 using EasyQuartz;
      public void ConfigureServices(IServiceCollection services)
      {
             //Add Service
