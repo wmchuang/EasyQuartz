@@ -24,6 +24,11 @@ namespace EasyQuartz
             foreach (var jobType in jobTypes)
             {
                 services.AddTransient(jobType);
+                var attribute = jobType.GetCustomAttributes(typeof(JobIgnoreAttribute), false).FirstOrDefault();
+                if (attribute != null)
+                {
+                    continue;
+                }
                 string cron = string.Empty;
                 if (jobType.BaseType == typeof(EasyQuartzJob))
                 {
@@ -32,7 +37,7 @@ namespace EasyQuartz
                 }
                 else
                 {
-                    var attribute = jobType.GetCustomAttributes(typeof(TriggerCronAttribute), false).FirstOrDefault();
+                    attribute = jobType.GetCustomAttributes(typeof(TriggerCronAttribute), false).FirstOrDefault();
                     if (attribute == null)
                     {
                         continue;
@@ -49,6 +54,7 @@ namespace EasyQuartz
             #endregion
 
             services.AddHostedService<QuartzHostedService>();
+            services.AddTransient<IJobManager, JobManager>();
         }
     }
 }

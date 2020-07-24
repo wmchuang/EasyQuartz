@@ -8,6 +8,7 @@ namespace EasyQuartz
     public class SingletonJobFactory : IJobFactory
     {
         private readonly IServiceProvider _serviceProvider;
+
         public SingletonJobFactory(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
@@ -22,7 +23,6 @@ namespace EasyQuartz
         {
             var disposable = job as IDisposable;
             disposable?.Dispose();
-
         }
     }
 }
