@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ApiSample
 {
-    [TriggerCron("0/10 * * * * ? *")]
+    [TriggerCron("*/20 * * * * ? *")]
     public class Test3Job : IJob
     {
         private readonly IJobManager _jobManager;
@@ -18,7 +18,7 @@ namespace ApiSample
         public async Task Execute(IJobExecutionContext context)
         {
             Console.WriteLine($"{DateTime.Now}我是  Test3Job");
-            await _jobManager.AddJobAsync(typeof(Test4Job), "0/1 * * * * ? *");
+            await _jobManager.AddJobAsync(typeof(Test4Job), CronCommon.SecondInterval(2), "111111");
         }
     }
 }

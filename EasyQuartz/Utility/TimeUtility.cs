@@ -1,0 +1,25 @@
+﻿using System;
+
+namespace EasyQuartz
+{
+    public class TimeUtility
+    {
+        /// <summary>
+        /// 时间格式转换成Quartz任务调度器Cron表达式
+        /// </summary>
+        /// <returns></returns>
+        public static string TimeToQuartzCron(DateTime time)
+        {
+            try
+            {
+                string cronValue = $"{time.Second} {time.Minute} {time.Hour} {time.Day} {time.Month} ?";
+                return cronValue;
+            }
+            catch (Exception ea)
+            {
+                Console.WriteLine(ea.Message.ToString());
+                throw ea;
+            }
+        }
+    }
+}
