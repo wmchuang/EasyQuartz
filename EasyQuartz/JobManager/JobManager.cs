@@ -35,6 +35,7 @@ namespace EasyQuartz
                     return;
                 }
             }
+
             IJobDetail job = JobBuilder.Create(jobType).WithIdentity(name, $"{name}Group")
             .WithDescription(jobType.Name)
             .UsingJobData("Id", mark)

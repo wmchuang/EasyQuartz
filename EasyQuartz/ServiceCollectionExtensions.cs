@@ -46,7 +46,7 @@ namespace EasyQuartz
                 }
                 if (!string.IsNullOrWhiteSpace(cron))
                 {
-                    schedule = new JobSchedule(jobType, cron, jobType.Name);
+                    schedule = new JobSchedule(jobType, cron, $"{jobType.Name}Group");
                     services.AddSingleton(schedule);
                 }
             }
