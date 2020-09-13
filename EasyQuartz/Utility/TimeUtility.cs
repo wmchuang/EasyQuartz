@@ -10,15 +10,15 @@ namespace EasyQuartz
         /// <returns></returns>
         public static string TimeToQuartzCron(DateTime time)
         {
+            var cronValue = $"{time.Second} {time.Minute} {time.Hour} {time.Day} {time.Month} ?";
             try
             {
-                string cronValue = $"{time.Second} {time.Minute} {time.Hour} {time.Day} {time.Month} ?";
                 return cronValue;
             }
             catch (Exception ea)
             {
                 Console.WriteLine(ea.Message.ToString());
-                throw ea;
+                throw;
             }
         }
     }

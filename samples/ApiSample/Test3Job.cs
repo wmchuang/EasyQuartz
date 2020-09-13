@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace ApiSample
 {
-    [TriggerCron("*/20 * * * * ? *")]
+    [StartNow]
+    [TriggerCron("0 0/5 * * * ? ")]
     public class Test3Job : IJob
     {
         private readonly IJobManager _jobManager;

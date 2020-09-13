@@ -2,7 +2,7 @@
 
 namespace EasyQuartz
 {
-    [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Class, Inherited = false)]
     public class TriggerCronAttribute : Attribute
     {
         public TriggerCronAttribute(string cron)

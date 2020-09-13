@@ -16,8 +16,6 @@ namespace EasyQuartz
 
             #region Add JobSchedule
 
-            JobSchedule schedule = null;
-
             var jobTypes = AppDomain.CurrentDomain.GetAssemblies()
                            .SelectMany(a => a.GetTypes().Where(t => t.GetInterfaces().Contains(typeof(IJob)) && t.IsClass && !t.IsAbstract))
                            .ToArray();
@@ -26,10 +24,9 @@ namespace EasyQuartz
                 services.AddTransient(jobType);
                 var attribute = jobType.GetCustomAttributes(typeof(JobIgnoreAttribute), false).FirstOrDefault();
                 if (attribute != null)
-                {
                     continue;
-                }
-                string cron = string.Empty;
+
+                string cron;
                 if (jobType.BaseType == typeof(EasyQuartzJob))
                 {
                     var jobService = services.BuildServiceProvider().GetService(jobType);
@@ -39,16 +36,15 @@ namespace EasyQuartz
                 {
                     attribute = jobType.GetCustomAttributes(typeof(TriggerCronAttribute), false).FirstOrDefault();
                     if (attribute == null)
-                    {
                         continue;
-                    }
+
                     cron = ((TriggerCronAttribute)attribute).Cron;
                 }
-                if (!string.IsNullOrWhiteSpace(cron))
-                {
-                    schedule = new JobSchedule(jobType, cron, $"{jobType.Name}Group");
-                    services.AddSingleton(schedule);
-                }
+
+                if (string.IsNullOrWhiteSpace(cron)) continue;
+
+                var schedule = new JobSchedule(jobType, cron, $"{jobType.Name}Group");
+                services.AddSingleton(schedule);
             }
 
             #endregion

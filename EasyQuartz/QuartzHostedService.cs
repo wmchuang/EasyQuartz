@@ -23,7 +23,7 @@ namespace EasyQuartz
             _jobFactory = jobFactory;
         }
 
-        public IScheduler Scheduler { get; set; }
+        private IScheduler Scheduler { get; set; }
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
@@ -43,6 +43,7 @@ namespace EasyQuartz
 
         public async Task StopAsync(CancellationToken cancellationToken)
         {
+            // ReSharper disable once PossibleNullReferenceException
             await Scheduler?.Shutdown(cancellationToken);
         }
 

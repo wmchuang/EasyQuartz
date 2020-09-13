@@ -20,9 +20,9 @@ namespace EasyQuartz
             _jobFactory = jobFactory;
         }
 
-        public async Task AddJobAsync(Type jobType, string cron, string mark = "")
+        public async Task AddJobAsync(Type jobType, string cron, string id = "")
         {
-            var name = jobType.FullName + mark;
+            var name = jobType.FullName + id;
 
             var scheduler = await _schedulerFactory.GetScheduler();
             scheduler.JobFactory = _jobFactory;
@@ -36,9 +36,9 @@ namespace EasyQuartz
                 }
             }
 
-            IJobDetail job = JobBuilder.Create(jobType).WithIdentity(name, $"{name}Group")
+            var job = JobBuilder.Create(jobType).WithIdentity(name, $"{name}Group")
             .WithDescription(jobType.Name)
-            .UsingJobData("Id", mark)
+            .UsingJobData("Id", id)
             .Build();
 
             var trigger = TriggerBuilder
@@ -52,9 +52,9 @@ namespace EasyQuartz
             await scheduler.Start();
         }
 
-        public async Task RemoveJobAsync(Type jobType, string mark = "")
+        public async Task RemoveJobAsync(Type jobType, string id = "")
         {
-            var name = jobType.FullName + mark;
+            var name = jobType.FullName + id;
             var scheduler = await _schedulerFactory.GetScheduler();
             var jobKeys = await scheduler.GetJobKeys(GroupMatcher<JobKey>.GroupEquals($"{name}Group"));
             await scheduler.DeleteJobs(jobKeys.Where(x => x.Name == name).ToList());
