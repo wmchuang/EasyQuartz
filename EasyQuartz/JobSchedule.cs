@@ -4,14 +4,17 @@ namespace EasyQuartz
 {
     public class JobSchedule
     {
-        public JobSchedule(Type jobType, string cronExpression, string group = "defaultGroup")
+        public JobSchedule(Type jobType, string cronExpression, string group = "defaultGroup", bool startNow = false)
         {
             JobType = jobType;
             CronExpression = cronExpression;
             Group = group;
+            StartNow = startNow;
         }
 
         public Type JobType { get; }
+
+        public bool StartNow { get; }
 
         public string CronExpression { get; }
 

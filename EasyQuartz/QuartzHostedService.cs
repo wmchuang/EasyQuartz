@@ -32,6 +32,12 @@ namespace EasyQuartz
             Scheduler.JobFactory = _jobFactory;
             foreach (var jobSchedule in _jobSchedules)
             {
+                if (jobSchedule.StartNow)
+                {
+                    var nowJob = CreateJob(jobSchedule, "_Now");
+                    var nowTrigger = CreateNowTrigger();
+                    await Scheduler.ScheduleJob(nowJob, nowTrigger, cancellationToken);
+                }
                 var job = CreateJob(jobSchedule);
                 var trigger = CreateTrigger(jobSchedule);
 
@@ -47,12 +53,12 @@ namespace EasyQuartz
             await Scheduler?.Shutdown(cancellationToken);
         }
 
-        private static IJobDetail CreateJob(JobSchedule schedule)
+        private static IJobDetail CreateJob(JobSchedule schedule, string now = "")
         {
             var jobType = schedule.JobType;
             return JobBuilder
                 .Create(jobType)
-                .WithIdentity(jobType.FullName, schedule.Group)
+                .WithIdentity($"{jobType.FullName}{now}", schedule.Group)
                 .WithDescription(jobType.Name)
                 .Build();
         }
@@ -64,6 +70,14 @@ namespace EasyQuartz
                 .WithIdentity($"{schedule.JobType.FullName}.trigger", schedule.Group)
                 .WithCronSchedule(schedule.CronExpression)
                 .WithDescription(schedule.CronExpression)
+                .Build();
+        }
+
+        private static ITrigger CreateNowTrigger()
+        {
+            return TriggerBuilder
+                .Create()
+                .StartNow()
                 .Build();
         }
     }
