@@ -18,6 +18,6 @@ namespace EasyQuartz
 
         public string CronExpression { get; }
 
-        public string Group { get; private set; }
+        public string Group { get; }
     }
 }

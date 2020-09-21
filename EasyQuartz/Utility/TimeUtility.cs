@@ -17,7 +17,7 @@ namespace EasyQuartz
             }
             catch (Exception ea)
             {
-                Console.WriteLine(ea.Message.ToString());
+                Console.WriteLine(ea.Message);
                 throw;
             }
         }

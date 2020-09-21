@@ -10,6 +10,6 @@ namespace EasyQuartz
             Cron = string.IsNullOrWhiteSpace(cron) ? "0/1 * * * * ? *" : cron;
         }
 
-        public string Cron { get; set; }
+        public string Cron { get; }
     }
 }
