@@ -21,9 +21,9 @@ namespace EasyQuartz
 
         public void ReturnJob(IJob job)
         {
-            if (job == null) return;
-            var disposable = (IDisposable) job;
-            disposable?.Dispose();
+            //if (job == null) return;
+            //var disposable = (IDisposable) job;
+            //disposable?.Dispose();
         }
     }
 }
