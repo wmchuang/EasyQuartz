@@ -8,7 +8,7 @@ namespace ConsoleSample
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("********** Begin **********");
+            Console.WriteLine("********** 开始运行 **********");
 
             new HostBuilder()
               .ConfigureServices(x => x.AddEasyQuartzService())
