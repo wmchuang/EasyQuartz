@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="EasyQuartz" Version="1.0.6" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="Quartz" Version="3.3.3" />
   </ItemGroup>
 
 </Project>
