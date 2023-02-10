@@ -2,13 +2,18 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="EasyQuartz" Version="1.0.6" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
-    <PackageReference Include="Quartz" Version="3.3.3" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\EasyQuartz.Dashboard\EasyQuartz.Dashboard.csproj" />
+    <ProjectReference Include="..\..\src\EasyQuartzStorage.MySql\EasyQuartzStorage.MySql.csproj" />
+    <ProjectReference Include="..\..\src\EasyQuartz\EasyQuartz.csproj" />
   </ItemGroup>
 
 </Project>

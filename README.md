@@ -1,5 +1,5 @@
 # EasyQuartz
-### 1. 引用EasyQuartz
+### 1. Nuget安装包 EasyQuartz
 
 
 
@@ -39,3 +39,15 @@
             return Task.CompletedTask;
         }
     }
+
+### 4. 数据持久化和控制面板
+
+##### 需要引入包 EasyQuartzStorage.MySql 和 EasyQuartz.Dashboard
+	 using EasyQuartz;
+     builder.Services.AddEasyQuartz(e =>
+     {
+      e.UseMySql(m => { m.ConnectionString = "server=XXX;user=root;database='XXX';port=3306;password=XXX;SslMode=None"; });
+      e.UseDashboard();
+     });
+
+##### 默认通过 http://ip:端口号/easyjob 访问

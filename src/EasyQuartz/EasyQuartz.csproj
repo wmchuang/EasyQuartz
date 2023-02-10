@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Version>3.2</Version>
+    <Authors>Wang Chuang</Authors>
+    <Description>Easy to use Quartz.</Description>
+    <PackageProjectUrl>https://gitee.com/CRole/EasyQuartz</PackageProjectUrl>
+    <RepositoryUrl>https://gitee.com/CRole/EasyQuartz</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>Quartz</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Quartz" Version="3.6.0" />
+  </ItemGroup>
+
+</Project>

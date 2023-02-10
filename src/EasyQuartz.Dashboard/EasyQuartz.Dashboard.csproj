@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+		<Version>3.2</Version>
+		<Authors>Wang Chuang</Authors>
+		<Description>Easy to use Quartz.</Description>
+		<PackageProjectUrl>https://gitee.com/CRole/EasyQuartz</PackageProjectUrl>
+		<RepositoryUrl>https://gitee.com/CRole/EasyQuartz</RepositoryUrl>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageTags>Quartz</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <FrameworkReference Include="Microsoft.AspNetCore.App" />
+      <ProjectReference Include="..\EasyQuartz\EasyQuartz.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="wwwroot/dist/**/*" Exclude="**/*/*.map" />
+    </ItemGroup>
+
+</Project>
